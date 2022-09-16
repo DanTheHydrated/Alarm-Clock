@@ -1,16 +1,18 @@
 var time = document.querySelector(".time");
 const selectMenu = document.querySelectorAll("select");
+SetAlarmBtn = document.querySelector('button');
+let alarmTime;
 
 //Clock function
 function updateClock() {
-    
+
   // Get the current time
     var now = new Date();
     var hours = now.getHours();
     var minutes = now.getMinutes();
     var seconds = now.getSeconds(); 
 
-  // format date and time
+  // format time
     hours = hours % 12 || 12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -24,25 +26,39 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+
 //Scroll selectors 
-for (let i=12; i>0; i--) {
-    i = i < 10 ? "0" + i : i;
-    let option = `<option value= "${i}">${i}</option>`;
-    selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", option);
-}
 
-for (let i=59; i>0; i--) {
-    i = i < 10 ? "0" + i : i;
-    let option = `<option value= "${i}">${i}</option>`;
-    selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", option);
-}
+    for (let i=12; i>0; i--) {
+        i = i < 10 ? "0" + i : i;
+        let hour = `<option value= "${i}">${i}</option>`;
+        selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", hour);
+    }
 
-for (let i=2; i > 0; i--) {
-    let ampm = i == 1 ? "AM" : "PM";
-    let option = `<option value= "${AMPM}">${AMPM}</option>`;
-    selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", option);
-}
+    for (let i=59; i>0; i--) {
+        i = i < 10 ? "0" + i : i;
+        let min = `<option value= "${i}">${i}</option>`;
+        selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", min);
+    }
 
+    for (let i=2; i > 0; i--) {
+        let ampm = i == 1 ? "AM" : "PM";
+        let zone = `<option value= "${ampm}">${ampm}</option>`;
+        selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", zone);
+    }
+
+
+
+
+//Alarm Function
+function setAlarm() {
+    let alarmTime = `${selectMenu[0].value}:${selectMenu[1].value}:${selectMenu[2].value}`;
+
+    if(alarmTime === time) {
+        alert('The time has come!');
+    }
+}
+setAlarmbtn.addEventListener('click', setAlarm)
 
 
 

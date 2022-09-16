@@ -50,6 +50,63 @@ for (let i=2; i > 0; i--) {
 
 
 
+/*
+// String value of current active alarm 
+var alarmString = null;
+
+// Handle Create Alarm submit
+const handleSetAlarm = (event) => {
+  // Prevent default action of reloading the page
+  event.preventDefault();
+  const { hour, min, zone } = document.optionValues[0];
+  alarmString = getTimeString({
+    hours: hour.value,
+    minutes: min.value,
+    zone: zone.value
+  });
+  // Reset form after submit
+  document.optionValues[0].reset();
+};
+
+// Attach submit event to the form
+document.optionValues[0].addEventListener("set", handleSet);
+
+
+
+
+
+
+
+// Select DOM element of active alarm container
+const activeAlarm = document.getElementById("active-alarm");
+
+// Select DOM element of active alarm text
+const alarmTextContainer = document.getElementById("alarm-text");
+
+// Update function to display active alarm on screen
+const handleSubmit = (event) => {
+  // Prevent default action of reloading the page
+  event.preventDefault();
+
+  const { hour, sec, min, zone } = document.options[0];
+  alarmString = getTimeString({
+    hours: hour.value,
+    seconds: sec.value,
+    minutes: min.value,
+    zone: zone.value
+  });
+
+  // Reset form after submit
+  document.options[0].reset();
+
+  // Hide create alarm
+  createAlarm.style.display = "none";
+
+  // show active alarm with text
+  activeAlarm.style.display = "block";
+  alarmTextContainer.innerHTML = alarmText(alarmString);
+
+*/
 
 
 

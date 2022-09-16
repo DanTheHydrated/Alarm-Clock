@@ -11,29 +11,28 @@
 <body>
     <div class="wrapper">
     <h1>Alarm Clock</h1>
-    
+
     <div class="Clock">
         <div class="time"></div>    
     </div>
 
-    <div class = "content">
-        <div class = "columnm">
+    <div class = "set Alarm">
+        <div class = "form-actions">
             <select>
                 <option value="Hour" selected hidden>Hour</option>
-            </select>
-        </div>
-        <div class="column">
+            </select>       
             <select>
                 <option value="Minute" selected hidden>Minute</option>
-            </select>
-        </div>
-        <div class="column">
+            </select>       
             <select>
                 <option value="AM/PM" selected hidden>AM/PM</option>
             </select>
         </div>
 
-        <button>Set Alarm!</button>
+        <button id="start">Set</button>
+        <div id="active-alarm">
+            <div id="arlam-text"></div>
+        </div>
     </div>
 </div>
 
