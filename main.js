@@ -1,7 +1,8 @@
 var time = document.querySelector(".time");
 const selectMenu = document.querySelectorAll("select");
-SetAlarmBtn = document.querySelector('button');
+setAlarmBtn = document.querySelector('button');
 let alarmTime;
+
 
 //Clock function
 function updateClock() {
@@ -19,7 +20,7 @@ function updateClock() {
    
 
   // display time
-    var period = hours < 12 ? "AM" : "PM";
+    period = hours < 12 ? "AM" : "PM"
     time.innerHTML = hours + ":" + minutes + ":" + seconds + " " + period;
 
 }
@@ -53,12 +54,12 @@ setInterval(updateClock, 1000);
 //Alarm Function
 function setAlarm() {
     let alarmTime = `${selectMenu[0].value}:${selectMenu[1].value}:${selectMenu[2].value}`;
-
-    if(alarmTime === time) {
+    console.log('alarm set');
+    if(alarmTime === now) {
         alert('The time has come!');
     }
 }
-setAlarmbtn.addEventListener('click', setAlarm)
+setAlarmBtn.addEventListener('click', setAlarm);
 
 
 
