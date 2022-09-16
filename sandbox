@@ -1,0 +1,30 @@
+const currentTime = document.queryselector("display")
+
+
+setInterval(() => {
+    let date = new Date(),
+    h = date.getHours(),
+    m = date.getMinutes(),
+    s = date.getSeconds(),
+    AMPM = "AM";
+
+    if (h>12) {
+        h = h -12;
+        AMPM = "PM";
+    }
+
+    h = h == 0 ? h = 12 : h;
+
+    h = h < 10 ? "0" + h: h;
+    m = m < 10 ? "0" + m: m;
+    s = s < 10 ? "0" + s: s;
+
+    currentTime.insertText = `${h}: ${m}: ${s}: ${AMPM}`;
+}, 1000)
+
+
+
+
+
+
+
