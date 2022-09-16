@@ -1,0 +1,16 @@
+body, .wrapper {
+    align-items: center;
+    display:flex;
+    justify-content: center;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+.wrapper {
+    background-color: antiquewhite;
+    border-radius: 5px;
+    flex-direction: row;
+    align-self: center;
+}

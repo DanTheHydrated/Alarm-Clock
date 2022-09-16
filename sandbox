@@ -1,0 +1,112 @@
+/*const currentTime = document.queryselector("display")
+
+
+setInterval(() => {
+    let date = new Date(),
+    h = date.getHours(),
+    m = date.getMinutes(),
+    s = date.getSeconds(),
+    AMPM = "AM";
+
+    if (h>12) {
+        h = h -12;
+        AMPM = "PM";
+    }
+
+    h = h == 0 ? h = 12 : h;
+
+    h = h < 10 ? "0" + h: h;
+    m = m < 10 ? "0" + m: m;
+    s = s < 10 ? "0" + s: s;
+
+    currentTime.insertText = `${h}: ${m}: ${s}: ${AMPM}`;
+}, 1000)
+
+let currentTime = newDate() => {
+let time = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
+setInterval = ()
+}
+
+/*
+for (let i=12; i>0; i--) {
+    i = i < 10 ? "0" + i : i;
+    let option = `<option value= "${i}">${i}</option>`;
+    selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", option);
+}
+
+for (let i=59; i>0; i--) {
+    i = i < 10 ? "0" + i : i;
+    let option = `<option value= "${i}">${i}</option>`;
+    selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", option);
+}
+
+for (let i=2; i > 0; i--) {
+    let ampm = i == 1 ? "AM" : "PM";
+    let option = `<option value= "${AMPM}">${AMPM}</option>`;
+    selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", option);
+}
+*/
+
+
+
+
+/*
+// String value of current active alarm 
+var alarmString = null;
+
+// Handle Create Alarm submit
+const handleSetAlarm = (event) => {
+  // Prevent default action of reloading the page
+  event.preventDefault();
+  const { hour, min, zone } = document.optionValues[0];
+  alarmString = getTimeString({
+    hours: hour.value,
+    minutes: min.value,
+    zone: zone.value
+  });
+  // Reset form after submit
+  document.optionValues[0].reset();
+};
+
+// Attach submit event to the form
+document.optionValues[0].addEventListener("set", handleSet);
+
+
+
+
+
+
+
+// Select DOM element of active alarm container
+const activeAlarm = document.getElementById("active-alarm");
+
+// Select DOM element of active alarm text
+const alarmTextContainer = document.getElementById("alarm-text");
+
+// Update function to display active alarm on screen
+const handleSubmit = (event) => {
+  // Prevent default action of reloading the page
+  event.preventDefault();
+
+  const { hour, sec, min, zone } = document.options[0];
+  alarmString = getTimeString({
+    hours: hour.value,
+    seconds: sec.value,
+    minutes: min.value,
+    zone: zone.value
+  });
+
+  // Reset form after submit
+  document.options[0].reset();
+
+  // Hide create alarm
+  createAlarm.style.display = "none";
+
+  // show active alarm with text
+  activeAlarm.style.display = "block";
+  alarmTextContainer.innerHTML = alarmText(alarmString);
+
+*/
+
+
+

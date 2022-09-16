@@ -1,47 +1,72 @@
-const currentTime = document.queryselector("display")
+var time = document.querySelector(".time");
 const selectMenu = document.querySelectorAll("select");
+setAlarmBtn = document.querySelector('button');
+let alarmTime;
 
-setInterval(() => {
-    let date = new Date(),
-    h = date.getHours(),
-    m = date.getMinutes(),
-    s = date.getSeconds(),
-    AMPM = "AM";
 
-    if (h>12) {
-        h = h -12;
-        AMPM = "PM";
+//Clock function
+function updateClock() {
+
+  // Get the current time
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds(); 
+
+  // format time
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+   
+
+  // display time
+    period = hours < 12 ? "AM" : "PM"
+    time.innerHTML = hours + ":" + minutes + ":" + seconds + " " + period;
+
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+
+//Scroll selectors 
+
+    for (let i=12; i>0; i--) {
+        i = i < 10 ? "0" + i : i;
+        let hour = `<option value= "${i}">${i}</option>`;
+        selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", hour);
     }
 
-    h = h == 0 ? h = 12 : h;
+    for (let i=59; i>0; i--) {
+        i = i < 10 ? "0" + i : i;
+        let min = `<option value= "${i}">${i}</option>`;
+        selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", min);
+    }
 
-    h = h < 10 ? "0" + h: h;
-    m = m < 10 ? "0" + m: m;
-    s = s < 10 ? "0" + s: s;
-
-    currentTime.insertText = `${h}: ${m}: ${s}: ${AMPM}`;
-}, 1000)
-
-
-
-
-
+    for (let i=2; i > 0; i--) {
+        let ampm = i == 1 ? "AM" : "PM";
+        let zone = `<option value= "${ampm}">${ampm}</option>`;
+        selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", zone);
+    }
 
 
-for (let i=12; i>0; i--) {
-    i = i < 10 ? "0" + i : i;
-    let option = `<option value= "${i}">${i}</option>`;
-    selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", option);
+
+
+//Alarm Function
+function setAlarm() {
+    let alarmTime = `${selectMenu[0].value}:${selectMenu[1].value}:${selectMenu[2].value}`;
+    console.log('alarm set');
+    if(alarmTime === now) {
+        alert('The time has come!');
+    }
 }
+setAlarmBtn.addEventListener('click', setAlarm);
 
-for (let i=59; i>0; i--) {
-    i = i < 10 ? "0" + i : i;
-    let option = `<option value= "${i}">${i}</option>`;
-    selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", option);
-}
 
-for (let i=2; i > 0; i--) {
-    let AMPM = i == 1 ? "AM" : "PM";
-    let option = `<option value= "${AMPM}">${AMPM}</option>`;
-    selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", option);
-}
+
+
+
+
+
+
+
+
